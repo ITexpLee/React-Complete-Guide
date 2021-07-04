@@ -1,18 +1,19 @@
+//Importing components (childrens)
+import ExpenseDate from "./ExpenseDate";
+
 //Importing css file
 import "./ExpenseItem.css";
 
 //Always Remember that Component is simply JavaScript function
-function ExpenseItem() {
-  //Defining the Date to be used
-  const expenseDate = new Date(2021, 2, 28);
-  const expenseTitle = "Car Insurance";
-  const expenseAmount = 294.67;
+//Props contains all the attributes passes. props.attributeName to access them
+function ExpenseItem(props) {
   return (
     <div className="expense-item">
-      <div>{expenseDate.toISOString()}</div>
+      {/* Elements or simply custom elements with nothing in between both tags can be written like this */}
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <p className="expense-item__price">${expenseAmount}</p>
+        <h2>{props.title}</h2>
+        <p className="expense-item__price">${props.amount}</p>
       </div>
     </div>
   );
