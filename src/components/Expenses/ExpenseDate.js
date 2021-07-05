@@ -3,7 +3,7 @@
 //Importing Css File
 import "./ExpenseDate.css";
 
-function ExpenseDate(props) {
+const ExpenseDate = (props) => {
   //Helper Variables or Js logic for the component
   const month = props.date.toLocaleString("en-us", { month: "long" });
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
@@ -15,7 +15,7 @@ function ExpenseDate(props) {
       <div className="expense-date__year">{year}</div>
     </div>
   );
-}
+};
 
 //exporting the component (to make is usable outside file)
 export default ExpenseDate;

@@ -1,8 +1,9 @@
+import React from "react";
 import "./App.css";
 //Importing custom components in tree ascending order
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+const App = () => {
   //Fetching Data Object for expenses
   const expenses = [
     {
@@ -27,12 +28,11 @@ function App() {
   ];
   return (
     <div>
-      <h2> Let's get Started!</h2>
       {/* We will pass all data to be required in expense item component as attributes*/}
       {/* We can pass the entire array of objects as attributes too*/}
       <Expenses item={expenses} />
     </div>
   );
-}
+};
 
 export default App;
