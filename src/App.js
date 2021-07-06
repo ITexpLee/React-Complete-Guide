@@ -27,11 +27,17 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  //Creating a user defined function for event to get Expense
+  const addExpenseHandler = (expense) => {
+    console.log(expense);
+  };
+
   return (
     <div>
       {/* We will pass all data to be required in expense item component as attributes*/}
       {/* We can pass the entire array of objects as attributes too*/}
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses item={expenses} />
     </div>
   );

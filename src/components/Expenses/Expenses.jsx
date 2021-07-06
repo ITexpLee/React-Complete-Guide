@@ -1,14 +1,26 @@
 //Importing custom components in tree ascending order
-import React from "react";
+import React, {useState} from "react";
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
+import ExpensesFilter from "../ExpenseSelection/ExpensesFilter";
 
 //Import Css files
 import "./Expenses.css";
 
 const Expenses = (props) => {
+
+  //Keep hold of the year selected in State
+  const [ filteredYear, setFilteredYear] = useState('2020');
+
+  //User defined event function or attribute
+  const filterChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
+  }
+
   return (
+    <div>
     <Card className="expenses">
+    <ExpensesFilter onFilterChange={filterChangeHandler} year={filteredYear}/>
       <ExpenseItem
         title={props.item[0].title}
         amount={props.item[0].amount}
@@ -30,6 +42,7 @@ const Expenses = (props) => {
         date={props.item[3].date}
       />
     </Card>
+    </div>
   );
 };
 
