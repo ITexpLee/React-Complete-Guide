@@ -14,6 +14,7 @@ const ExpenseItem = (props) => {
   // Changing title with click handler
 
   return (
+    <li>
     <Card className="expense-item">
       {/* Elements or simply custom elements with nothing in between both tags can be written like this */}
       <ExpenseDate date={props.date} />
@@ -23,6 +24,7 @@ const ExpenseItem = (props) => {
       </div>
       {/* Creating Button tag to make it dynamic */}
     </Card>
+    </li>
   );
 };
 
