@@ -1,5 +1,5 @@
 //Import React and other Modules
-import React from "react";
+import React, {useState} from "react";
 import ExpenseForm from "./ExpenseForm";
 
 //Importing Css file
@@ -20,9 +20,33 @@ const NewExpense = (props) => {
     props.onAddExpense(expenseData);
   }
 
+  // New State to render or cancel the form logic
+  const [addExpense, setAddExpense] = useState(false);
+
+  //Form cancel logic handler
+  const expenseFormHandler = () => {
+    //callback to change state (if true then false)
+    setAddExpense(prevState => {
+      return !prevState;
+    });
+  }
+
+  //Cancel button logic
+  const stopEditingHandler = () => {
+    setAddExpense(prevState => {
+      return !prevState;
+    });
+  }
+
+  //Rendering logic either button or form depending wether the State ir true or not
+  let addExpensebtn = <button onClick={expenseFormHandler}>Add New Expense</button>
+  if(addExpense === true) {
+    addExpensebtn = <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} inExpenseForm={stopEditingHandler}/>
+  }
+
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
+      {addExpensebtn}
     </div>
   );
 };
