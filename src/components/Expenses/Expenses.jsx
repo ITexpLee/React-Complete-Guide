@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import Card from "../UI/Card";
 import ExpensesFilter from "../ExpenseSelection/ExpensesFilter";
 import ExpenseList from "./ExpenseList";
+import ExpenseChart from "./ExpensesChart";
 
 //Import Css files
 import "./Expenses.css";
@@ -30,6 +31,7 @@ const Expenses = (props) => {
     {/* Printing out our code by props.array to create ExpenseItem */}
     {/* We are abusing the fact that javaScript check condition from left */}
     {/* {filteredExpenses.length === 0 && <p>No Expenses Found.</p>} */}
+    <ExpenseChart expenses={filteredExpenses}/>
     <ExpenseList items={filteredExpenses}/>
     {/* {filteredExpenses.length > 0 && filteredExpenses.map(expense => 
       <ExpenseItem 

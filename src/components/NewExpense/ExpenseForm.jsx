@@ -33,7 +33,8 @@ const ExpenseForm = (props) => {
     //Combine all the states change
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      // Putting a plus in front of a string makes it a number
+      amount: +enteredAmount,
       // Constructing a new date with the date value user entered
       date: new Date(enteredDate)
     }
